@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hive/config/components/internet_exception_widget.dart';
+import 'package:hive/config/components/loading_widget.dart';
 import 'package:hive/config/routes/routes_nname.dart';
+
+import '../../config/data/exceptions/app_exceptions.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});
@@ -12,22 +16,11 @@ class _ScreenSplashState extends State<ScreenSplash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text("Splash screen"),
-            const SizedBox(
-              height: 50,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RouteName.home);
-                },
-                child: const Text("Splash screen"))
-          ],
-        ),
-      ),
+      body: Center(child: InternetExceptionWidget(
+        onTap: () {
+          throw NoInternetException("Network unavilable");
+        },
+      )),
     );
   }
 }
