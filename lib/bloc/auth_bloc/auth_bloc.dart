@@ -1,5 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hive/config/config.dart';
+
+import '../../utils/utils.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 

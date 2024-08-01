@@ -5,24 +5,30 @@ import '../colors/colors.dart';
 class AuthTextFieldWidget extends StatelessWidget {
   const AuthTextFieldWidget({
     super.key,
-    required this.controller,
+    this.controller,
     required this.label,
     this.validator,
     this.obscureText = false,
     this.suffixIcon,
     this.onFieldSubmitted,
     this.focusNode,
+    this.initialValue,
+    this.onChanged,
   });
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
   final void Function(String)? onFieldSubmitted;
   final bool obscureText;
   final Widget? suffixIcon;
   final FocusNode? focusNode;
   final String label;
+  final String? initialValue;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialValue,
+      onChanged: onChanged,
       controller: controller,
       validator: validator,
       obscureText: obscureText,

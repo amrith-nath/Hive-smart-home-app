@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive/utils/utils.dart';
 
 import '../../config/config.dart';
+import '../../constants/constants.dart';
 
 class ScreenOnboard extends StatefulWidget {
   const ScreenOnboard({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hive/config/constants/assets.dart';
-import 'package:hive/config/constants/tags.dart';
-import 'package:hive/config/extensions/size_extensions.dart';
+import 'package:hive/constants/assets.dart';
+import 'package:hive/constants/tags.dart';
+import 'package:hive/utils/size_extensions.dart';
 
 import 'package:hive/services/splash/splash_services.dart';
 
@@ -32,6 +32,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
         children: [
           Hero(
             tag: KTags.primaryHeroTag,
+            transitionOnUserGestures: true,
             child: Image.asset(
               KAssets.hiveLogo,
               width: 100,

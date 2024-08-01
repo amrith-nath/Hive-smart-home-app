@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive/utils/utils.dart';
 import '../../../config/config.dart';
+import '../../../constants/assets.dart';
+import '../../../constants/tags.dart';
 
 class AuthHeroWidget extends StatelessWidget {
   const AuthHeroWidget(
@@ -9,6 +12,7 @@ class AuthHeroWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
+      transitionOnUserGestures: true,
       tag: KTags.primaryHeroTag,
       child: Container(
         clipBehavior: Clip.hardEdge,

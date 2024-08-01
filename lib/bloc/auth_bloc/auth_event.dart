@@ -14,6 +14,8 @@ class EmailChanged extends AuthEvent {
   List<Object> get props => [email];
 }
 
+class EmailUnfocused extends AuthEvent {}
+
 class NameChanged extends AuthEvent {
   const NameChanged({required this.name});
 
@@ -22,6 +24,8 @@ class NameChanged extends AuthEvent {
   List<Object> get props => [name];
 }
 
+class NameUnfocused extends AuthEvent {}
+
 class PasswordChanged extends AuthEvent {
   const PasswordChanged({required this.password});
 
@@ -29,3 +33,9 @@ class PasswordChanged extends AuthEvent {
   @override
   List<Object> get props => [password];
 }
+
+class PasswordUnfocused extends AuthEvent {}
+
+class SignInButtonClick extends AuthEvent {}
+
+class RegisterButtonClick extends AuthEvent {}
