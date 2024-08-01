@@ -1,6 +1,6 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import '../../config/config.dart';
+import 'widgets/widgets.dart';
 
 class ScreenLogin extends StatefulWidget {
   const ScreenLogin({super.key});
@@ -103,45 +103,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    AuthTextFieldWidget(
-                      label: 'Email',
-                      controller: emailController,
-                      onFieldSubmitted: (_) {},
-                      focusNode: emailFocusNode,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your username';
-                        } else if (!EmailValidator.validate(value)) {
-                          return 'Invalid email format';
-                        }
-                        return null;
-                      },
-                    ),
-                    20.vh,
-                    AuthTextFieldWidget(
-                        label: 'Password',
-                        controller: passwordController,
-                        onFieldSubmitted: (_) {},
-                        focusNode: passwordFocusNode,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
-                          } else if (value.length < 6) {
-                            return "Password should contain minimum 6 letters or characters";
-                          }
-                          return null;
-                        },
-                        obscureText: obscureText,
-                        suffixIcon: InkWell(
-                          onTap: () {
-                            setState(() {
-                              obscureText = !obscureText;
-                            });
-                          },
-                          child: Icon(obscureText
-                              ? Icons.visibility_off_rounded
-                              : Icons.visibility_rounded),
-                        )),
+                    SignInTextfields(
+                        emailFocusNode: emailFocusNode,
+                        passwordFocusNode: passwordFocusNode),
                     25.vh,
                     PrimaryButtonWidget(
                         width: double.infinity,
