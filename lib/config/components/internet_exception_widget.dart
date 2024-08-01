@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive/config/colors/colors.dart';
-import 'package:hive/config/data/exceptions/app_exceptions.dart';
 
 import 'primary_button_widget.dart';
 

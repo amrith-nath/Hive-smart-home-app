@@ -36,7 +36,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
         child: Text(
           widget.label,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: KColors.whitePrimary,
                 fontWeight: FontWeight.w500,
               ),

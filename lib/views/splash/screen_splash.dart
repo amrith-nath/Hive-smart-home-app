@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/config/components/internet_exception_widget.dart';
-import 'package:hive/config/components/loading_widget.dart';
-import 'package:hive/config/routes/routes_nname.dart';
+
+import 'package:hive/services/splash/splash_services.dart';
 
 import '../../config/data/exceptions/app_exceptions.dart';
 
@@ -13,6 +13,14 @@ class ScreenSplash extends StatefulWidget {
 }
 
 class _ScreenSplashState extends State<ScreenSplash> {
+  final _splashServices = SplashServices();
+
+  @override
+  void initState() {
+    _splashServices.isLogin(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
