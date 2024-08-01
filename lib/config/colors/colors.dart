@@ -22,7 +22,7 @@ class KColors {
   static const Color toggleBgInactive = Color(0xffD6D6D6);
 //-text-----------------
   static const Color textMain = darkPrimary;
-  static const Color textSecondary = Color(0xff838A8F);
+  static const Color textSecondary = Color(0xff70797E);
   static const Color textActive = whitePrimary;
   static const Color textInactive = Color(0xff7D7D7D);
   static const Color textSubActive = Color(0xffA7A7A7);

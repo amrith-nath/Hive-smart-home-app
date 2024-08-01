@@ -3,17 +3,22 @@ import 'package:flutter/material.dart';
 import '../colors/colors.dart';
 
 class AuthTextFieldWidget extends StatelessWidget {
-  const AuthTextFieldWidget(
-      {super.key,
-      required this.controller,
-      required this.label,
-      this.validator,
-      this.obscureText = false,
-      this.suffixIcon});
+  const AuthTextFieldWidget({
+    super.key,
+    required this.controller,
+    required this.label,
+    this.validator,
+    this.obscureText = false,
+    this.suffixIcon,
+    this.onFieldSubmitted,
+    this.focusNode,
+  });
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final void Function(String)? onFieldSubmitted;
   final bool obscureText;
   final Widget? suffixIcon;
+  final FocusNode? focusNode;
   final String label;
   @override
   Widget build(BuildContext context) {
@@ -21,6 +26,8 @@ class AuthTextFieldWidget extends StatelessWidget {
       controller: controller,
       validator: validator,
       obscureText: obscureText,
+      focusNode: focusNode,
+      onFieldSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
           labelText: label,
           labelStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(

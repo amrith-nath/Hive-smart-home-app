@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hive/config/routes/routes_nname.dart';
+
+import '../../config/config.dart';
 
 class SplashServices {
   //
@@ -11,7 +12,7 @@ class SplashServices {
       const Duration(seconds: 3),
       () => Navigator.pushNamedAndRemoveUntil(
         context,
-        RouteName.login,
+        RouteName.onboard,
         (r) => false,
       ),
     );

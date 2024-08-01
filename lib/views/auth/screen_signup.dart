@@ -1,18 +1,20 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+
 import '../../config/config.dart';
 
-class ScreenLogin extends StatefulWidget {
-  const ScreenLogin({super.key});
+class ScreenSignUp extends StatefulWidget {
+  const ScreenSignUp({super.key});
 
   @override
-  State<ScreenLogin> createState() => _ScreenLoginState();
+  State<ScreenSignUp> createState() => _ScreenSignUpState();
 }
 
-class _ScreenLoginState extends State<ScreenLogin> {
+class _ScreenSignUpState extends State<ScreenSignUp> {
   TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
+  FocusNode nameFocusNode = FocusNode();
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
@@ -54,7 +56,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     Row(
                       children: [
                         Text(
-                          "Sign In to your\nAccount",
+                          "Register your\nAccount",
                           style: Theme.of(context)
                               .textTheme
                               .displaySmall!
@@ -69,14 +71,14 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.login,
                           color: KColors.textSecondary,
                         ),
 
                         10.vw,
                         Text(
-                          "Use your mail and password\nto SignIn",
+                          "Use your mail and password\nto Register",
                           style: Theme.of(context)
                               .textTheme
                               .displayMedium!
@@ -104,10 +106,25 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 child: Column(
                   children: [
                     AuthTextFieldWidget(
+                      label: 'Full Name',
+                      controller: nameController,
+                      focusNode: nameFocusNode,
+                      onFieldSubmitted: (_) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Name is required';
+                        } else if (value.length < 3) {
+                          return 'name should contain minimum 6 letters';
+                        }
+                        return null;
+                      },
+                    ),
+                    20.vh,
+                    AuthTextFieldWidget(
                       label: 'Email',
                       controller: emailController,
-                      onFieldSubmitted: (_) {},
                       focusNode: emailFocusNode,
+                      onFieldSubmitted: (_) {},
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your username';
@@ -121,8 +138,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     AuthTextFieldWidget(
                         label: 'Password',
                         controller: passwordController,
-                        onFieldSubmitted: (_) {},
                         focusNode: passwordFocusNode,
+                        onFieldSubmitted: (_) {},
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your password';
@@ -148,7 +165,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         onTap: () {
                           if (_formKey.currentState!.validate()) {}
                         },
-                        label: "Sign In"),
+                        label: "Register"),
                     25.vh,
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -156,7 +173,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                       children: [
                         // const Spacer(),
                         Text(
-                          "Dont have an Account yet? ",
+                          "Already have an account ? ",
                           style: Theme.of(context)
                               .textTheme
                               .displayMedium!
@@ -170,9 +187,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         TextButtonWidget(
                             onTap: () {
                               Navigator.pushReplacementNamed(
-                                  context, RouteName.signUp);
+                                  context, RouteName.login);
                             },
-                            label: "Register")
+                            label: "SignIn")
                       ],
                     ),
                   ],

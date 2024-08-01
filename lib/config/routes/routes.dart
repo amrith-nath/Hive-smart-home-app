@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hive/config/routes/routes_nname.dart';
-
+import 'package:hive/config/routes/routes_name.dart';
+import 'package:hive/views/auth/screen_signup.dart';
 import '../../views/views.dart';
 
 class Routes {
@@ -8,10 +8,15 @@ class Routes {
     switch (settings.name) {
       case RouteName.splash:
         return _getRoute(screen: const ScreenSplash());
-      case RouteName.login:
-        return _getRoute(screen: const ScreenLogin());
+
       case RouteName.home:
         return _getRoute(screen: const ScreenHome());
+      case RouteName.onboard:
+        return _getRoute(screen: const ScreenOnboard());
+      case RouteName.login:
+        return _getRoute(screen: const ScreenLogin());
+      case RouteName.signUp:
+        return _getRoute(screen: const ScreenSignUp());
       default:
         return _getRoute(screen: _defaultWidget);
     }
@@ -19,7 +24,7 @@ class Routes {
 
 //========================================================================>
 //
-// helper function for reuseability
+// helper function to reuse
 //
   static Route<dynamic> _getRoute({required Widget screen}) {
     return MaterialPageRoute(builder: (context) => screen);
