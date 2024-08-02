@@ -55,12 +55,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                           emailFocusNode: emailFocusNode,
                           passwordFocusNode: passwordFocusNode),
                       25.vh,
-                      PrimaryButtonWidget(
-                          width: double.infinity,
-                          onTap: () {
-                            if (_formKey.currentState!.validate()) {}
-                          },
-                          label: "Sign In"),
+                      SignInButtonWidget(
+                        formKey: _formKey,
+                      ),
                       25.vh,
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

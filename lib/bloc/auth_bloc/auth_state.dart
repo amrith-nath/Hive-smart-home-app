@@ -5,7 +5,7 @@ class AuthState extends Equatable {
     this.email = '',
     this.password = '',
     this.name = '',
-    this.errorMessage = '',
+    this.message = '',
     this.apiStatus = ApiStatus.initial,
   });
 
@@ -13,24 +13,24 @@ class AuthState extends Equatable {
   final String password;
   final String name;
   final ApiStatus apiStatus;
-  final String errorMessage;
+  final String message;
 
   AuthState copyWith({
     String? email,
     String? password,
     String? name,
     ApiStatus? apiStatus,
-    String? errorMessage,
+    String? message,
   }) {
     return AuthState(
       email: email ?? this.email,
       password: password ?? this.password,
       name: name ?? this.name,
       apiStatus: apiStatus ?? this.apiStatus,
-      errorMessage: errorMessage ?? this.errorMessage,
+      message: message ?? this.message,
     );
   }
 
   @override
-  List<Object?> get props => [email, password, name, apiStatus, errorMessage];
+  List<Object?> get props => [email, password, name, apiStatus, message];
 }

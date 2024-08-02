@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../data.dart';
@@ -27,7 +29,7 @@ class FirebaseServices implements BaseFirebaseServices {
         throw UnauthorizedException("$email is not valid");
       } else if (e.code == "user-token-expired" ||
           e.code == "operation-not-allowed") {
-        throw UnauthorizedException();
+        throw InvalidUserException("Token expired");
       } else if (e.code == "weak-password") {
         throw WeakPasswordException();
       } else if (e.code == "too-many-requests") {
@@ -56,10 +58,10 @@ class FirebaseServices implements BaseFirebaseServices {
         throw UnauthorizedException("$email is not valid");
       } else if (e.code == "user-token-expired" ||
           e.code == "operation-not-allowed") {
-        throw UnauthorizedException();
+        throw InvalidUserException("Token Expired");
       } else if (e.code == "INVALID_LOGIN_CREDENTIALS " ||
           e.code == "invalid-credential") {
-        throw UnauthorizedException("Invalid credentials");
+        throw InvalidUserException("Invalid credentials");
       } else if (e.code == "weak-password") {
         throw WeakPasswordException();
       } else if (e.code == "too-many-requests") {
@@ -67,7 +69,7 @@ class FirebaseServices implements BaseFirebaseServices {
       } else if (e.code == "wrong-password") {
         throw UnauthorizedException('Wrong password');
       } else if (e.code == "user-not-found") {
-        throw UnauthorizedException('User not found');
+        throw InvalidUserException('User not found');
       }
     } catch (e) {
       rethrow;

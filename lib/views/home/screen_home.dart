@@ -12,7 +12,7 @@ class _ScreenHomeState extends State<ScreenHome> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("Splash home"),
+        child: Text("/ home"),
       ),
     );
   }

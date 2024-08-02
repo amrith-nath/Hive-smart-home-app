@@ -55,12 +55,7 @@ class _ScreenSignUpState extends State<ScreenSignUp> {
                           emailFocusNode: emailFocusNode,
                           passwordFocusNode: passwordFocusNode),
                       25.vh,
-                      PrimaryButtonWidget(
-                          width: double.infinity,
-                          onTap: () {
-                            if (_formKey.currentState!.validate()) {}
-                          },
-                          label: "Register"),
+                      SignUpButtonWidget(formKey: _formKey),
                       25.vh,
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

@@ -34,11 +34,13 @@ class _SignInTextfieldsState extends State<SignInTextfields> {
                 context.read<AuthBloc>().add(EmailChanged(email: value));
               },
               label: 'Email',
-              onFieldSubmitted: (_) {},
+              onFieldSubmitted: (_) {
+                widget.emailFocusNode.unfocus();
+              },
               focusNode: widget.emailFocusNode,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your username';
+                  return 'Please enter your Email';
                 } else if (!EmailValidator.validate(value)) {
                   return 'Invalid email format';
                 }

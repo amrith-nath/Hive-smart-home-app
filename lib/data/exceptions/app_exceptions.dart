@@ -33,3 +33,7 @@ class EmailAlreadyInUseException extends AppExceptions {
 class WeakPasswordException extends AppExceptions {
   WeakPasswordException([String? message]) : super(message, "Weak password");
 }
+
+class InvalidUserException extends AppExceptions {
+  InvalidUserException([String? message]) : super(message, "Invalid User");
+}
