@@ -27,7 +27,7 @@ class RequestTimeOutException extends AppExceptions {
 
 class EmailAlreadyInUseException extends AppExceptions {
   EmailAlreadyInUseException([String? message])
-      : super(message, "Email Already in use");
+      : super(message, "Email Already in use, Try Signin");
 }
 
 class WeakPasswordException extends AppExceptions {

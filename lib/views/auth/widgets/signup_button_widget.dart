@@ -17,6 +17,8 @@ class SignUpButtonWidget extends StatelessWidget {
       listener: (context, state) {
         log("signUp listening");
         if (state.apiStatus == ApiStatus.success) {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(RouteName.home, (_) => false);
           FlushbarHelperFnction.flushBarSuccessMessage(
               context: context, message: 'Welcome ${state.name.toUpperCase()}');
         }

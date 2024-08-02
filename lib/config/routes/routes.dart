@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/config/routes/routes_name.dart';
 import 'package:hive/views/auth/screen_signup.dart';
+import 'package:hive/views/mqtt/screen_mqtt.dart';
 import '../../views/views.dart';
 
 class Routes {
@@ -17,6 +18,8 @@ class Routes {
         return _getRoute(screen: const ScreenLogin());
       case RouteName.signUp:
         return _getRoute(screen: const ScreenSignUp());
+      case RouteName.mqtt:
+        return _getRoute(screen: const ScreenMQTT());
       default:
         return _getRoute(screen: _defaultWidget);
     }

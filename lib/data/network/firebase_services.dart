@@ -22,9 +22,9 @@ class FirebaseServices implements BaseFirebaseServices {
       return userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == "network-request-failed") {
-        throw NoInternetException();
+        throw NoInternetException("Check your connection");
       } else if (e.code == "email-already-in-use") {
-        throw EmailAlreadyInUseException(email);
+        throw EmailAlreadyInUseException();
       } else if (e.code == "invalid-email") {
         throw UnauthorizedException("$email is not valid");
       } else if (e.code == "user-token-expired" ||
@@ -50,8 +50,9 @@ class FirebaseServices implements BaseFirebaseServices {
 
       return userCredential.user;
     } on FirebaseAuthException catch (e) {
+      log(e.code);
       if (e.code == "network-request-failed") {
-        throw NoInternetException();
+        throw NoInternetException("Check your connection");
       } else if (e.code == "email-already-in-use") {
         throw EmailAlreadyInUseException(email);
       } else if (e.code == "invalid-email") {
@@ -61,7 +62,7 @@ class FirebaseServices implements BaseFirebaseServices {
         throw InvalidUserException("Token Expired");
       } else if (e.code == "INVALID_LOGIN_CREDENTIALS " ||
           e.code == "invalid-credential") {
-        throw InvalidUserException("Invalid credentials");
+        throw InvalidUserException("Email and Password doesn't match");
       } else if (e.code == "weak-password") {
         throw WeakPasswordException();
       } else if (e.code == "too-many-requests") {

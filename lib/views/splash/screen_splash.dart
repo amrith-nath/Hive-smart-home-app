@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive/constants/assets.dart';
 import 'package:hive/constants/tags.dart';
-import 'package:hive/utils/size_extensions.dart';
-
-import 'package:hive/services/splash/splash_services.dart';
+import 'package:hive/utils/utils.dart';
 
 import '../../config/colors/colors.dart';
+import '../../services/services.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});
