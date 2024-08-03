@@ -45,7 +45,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
         onPressed: widget.isLoading ? null : widget.onTap,
         child: widget.isLoading
             ? LoadingWidget(
-                size: 30,
+                size: 20,
                 color: widget.useStyle2 ? null : KColors.whitePrimary,
               )
             : Text(

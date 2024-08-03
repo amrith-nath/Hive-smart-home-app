@@ -18,6 +18,11 @@ class SessionController {
   factory SessionController() {
     return _session;
   }
+  Future<void> deleteUserPreference() async {
+    await storage.delete(key: 'userName');
+    await storage.delete(key: 'email');
+    await storage.delete(key: 'isLogin');
+  }
 
   Future<void> saveUserInPreference(
       {required String userName, required String email}) async {

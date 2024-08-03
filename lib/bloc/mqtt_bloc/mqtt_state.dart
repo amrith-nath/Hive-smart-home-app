@@ -1,35 +1,38 @@
 part of "mqtt_bloc.dart";
 
 class MQTTState extends Equatable {
-  const MQTTState({
+  MQTTState({
     this.host = '',
     this.clientId = '',
     this.topic = '',
+    this.statusMessage = '',
     this.port = 0,
     this.messages = const [],
     this.isStarted = false,
-    this.isSubscribed = false,
     this.isloading = false,
+    this.apiStatus = ApiStatus.initial,
   });
 
   final String host;
   final String clientId;
   final String topic;
+  final String statusMessage;
   final int port;
-  final List<MessageModel> messages;
+  List<MessageModel> messages;
   final bool isStarted;
-  final bool isSubscribed;
   final bool isloading;
+  final ApiStatus apiStatus;
 
   MQTTState copyWith({
     String? host,
     String? clientId,
     String? topic,
+    String? statusMessage,
     int? port,
     List<MessageModel>? messages,
     bool? isStarted,
-    bool? isSubscribed,
     bool? isloading,
+    ApiStatus? apiStatus,
   }) {
     return MQTTState(
       host: host ?? this.host,
@@ -38,8 +41,9 @@ class MQTTState extends Equatable {
       port: port ?? this.port,
       messages: messages ?? this.messages,
       isStarted: isStarted ?? this.isStarted,
-      isSubscribed: isSubscribed ?? this.isSubscribed,
       isloading: isloading ?? this.isloading,
+      apiStatus: apiStatus ?? this.apiStatus,
+      statusMessage: statusMessage ?? this.statusMessage,
     );
   }
 
@@ -51,7 +55,8 @@ class MQTTState extends Equatable {
         port,
         messages,
         isStarted,
-        isSubscribed,
-        isloading
+        isloading,
+        apiStatus,
+        statusMessage,
       ];
 }
